@@ -1,13 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
+import { AuthtokenService } from './authtoken.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicioCarritoService {
   url:string="http://localhost:8000/"
-  constructor(private http:HttpClient) { }
+  httpOptions:any
+  
+  constructor(private http:HttpClient, private Auth: AuthtokenService) { 
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Token ' + this.Auth.getToken()
+      })
+    };
+  }
 
   ObtenerCarrito(): Observable <any>{
     return this.http.get(this.url+"api/auth/user/")

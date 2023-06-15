@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from rest_framework import status, generics
 from rest_framework.response import Response
@@ -6,6 +5,8 @@ from rest_framework.views import APIView
 from .serializers import UserSerializer, RifaSerializer
 from .models import CustomUser, Rifa
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
+from rest_framework.authtoken.models import Token
+from rest_framework.authentication import TokenAuthentication
 
 # Create your views here.
 
@@ -20,10 +21,12 @@ class LoginView(APIView):
         username = request.data.get('username', None)
         password = request.data.get('password', None)
         user = authenticate(username=username, password=password)
-        if user:
+        token,_=Token.objects.get_or_create(user=user)
+        if token:
             login(request, user)
-            return Response(
-                UserSerializer(user).data,
+            return Response({
+                'token': token.key
+            },
                 status=status.HTTP_200_OK
             )
         return Response(
@@ -33,6 +36,7 @@ class LoginView(APIView):
 class LogoutView(APIView):
     permission_classes = [AllowAny]
     def post(self, request):
+        request.user.auth_token.delete()
         logout(request)
         return Response(
             status=status.HTTP_200_OK
@@ -40,6 +44,7 @@ class LogoutView(APIView):
     
 class UserViewSet(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
     queryset=CustomUser.objects.all()
     serializer_class= UserSerializer
 

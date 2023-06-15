@@ -9,6 +9,7 @@ import { PagesModule } from './pages/pages.module';
 import { ServicioMirifaService } from './Servicios/servicio-mirifa.service';
 import { ServicioCarritoService } from './Servicios/servicio-carrito.service';
 import { ServicioUsuarioService } from './Servicios/servicio-usuario.service';
+import { AuthtokenService } from './Servicios/authtoken.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
@@ -27,7 +28,7 @@ import { CookieService } from 'ngx-cookie-service';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ServicioMirifaService,ServicioCarritoService,ServicioUsuarioService,CookieService],
+  providers: [ServicioMirifaService,ServicioCarritoService,ServicioUsuarioService,CookieService, AuthtokenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

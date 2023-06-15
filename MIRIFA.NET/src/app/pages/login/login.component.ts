@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {Validators} from '@angular/forms'
 import { NgClass } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthtokenService } from 'src/app/Servicios/authtoken.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent{
 
   constructor(private Miservicio:ServicioUsuarioService, 
     private formBuilder: FormBuilder,
-    private router: Router){
+    private router: Router,
+    private Auth: AuthtokenService){
     }
 
   get Password(){
@@ -37,7 +39,7 @@ export class LoginComponent{
       alert("Enviar al servidor...")
       console.log(this.loginForm.value)
       this.Miservicio.EnviarUser(this.loginForm.value).subscribe(data =>{
-        this.Miservicio.setToken(data.token)
+        this.Auth.setToken(data.token)
       })
       this.router.navigate(['/profile'])
     }else{
