@@ -1,0 +1,58 @@
+<div>
+    <h2>Usuarios</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>Username</td>
+                <td>Email</td>
+                <td>Acciones</td>
+            </tr>
+        </thead>
+        <tbody *ngFor="let element of usuariosList">
+            <tr>
+                <td id="emailUser">{{element.email}}</td>
+                <td>{{element.username}}</td>
+                <td>
+                    <button (click)="onDeleteUser(element.email)">
+                        <img src="/assets/basura.png" alt="eliminar">
+                    </button>
+                    <button (click)="onEditUser(element.email)">
+                        <img src="/assets/edit.png" alt="editar">
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <h2>Rifas</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Titulo</td>
+                <td>Organizador</td>
+                <td>Rifas</td>
+                <td>Valor</td>
+                <td>Acciones</td>
+            </tr>
+        </thead>
+        <tbody *ngFor="let element of rifasActual">
+            <tr>
+                <td>{{element.id_rifa}}</td>
+                <td>{{element.nombre_sorteo}}</td>
+                <td>{{element.organizador}}</td>
+                <td>{{element.cantidad_rifas}}</td>
+                <td>{{element.valor|currency}}</td>
+                <td>
+                    <button (click)="OnDeleteRifa(element.id_rifa)">
+                        <img src="/assets/basura.png" alt="eliminar">
+                    </button>
+                    <button (click)="OnEditRifa(element.id_rifa)">
+                        <img src="/assets/edit.png" alt="editar">
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

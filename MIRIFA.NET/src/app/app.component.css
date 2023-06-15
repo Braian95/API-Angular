@@ -1,0 +1,27 @@
+.fondo1{
+    background-image: url(/assets/Fondo1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.fondo2{
+    background-image: linear-gradient(rgba(233, 241, 248, 0.15),rgba(235, 239, 250, 0.50)),url(/assets/Fondo2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.fondo3{
+    background-image: url(/assets/Fondo3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.fondo4{
+    background-image: url(/assets/Fondo4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}

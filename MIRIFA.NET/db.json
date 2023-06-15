@@ -1,0 +1,88 @@
+{
+  "rifasCarrito": [
+    {
+      "id": 1,
+      "titulo": "Veterinaria SALUD",
+      "numeros": 100,
+      "valor": 600
+    },
+    {
+      "id": 2,
+      "titulo": "Guarderia CUIDAMOS PARA TODOS y TODAS",
+      "numeros": 36,
+      "valor": 1250
+    },
+    {
+      "id": 3,
+      "titulo": "Guarderia CUIDAMOS",
+      "numeros": 10,
+      "valor": 250
+    }
+  ],
+  "listaRifasActuales": [
+    {
+      "id": 0,
+      "titulo": "Escuela IPEM n° 745",
+      "descripcion": "se realiza rifa para ayudar a la escuela con la remodelacion de aulas",
+      "premios": "1° boucher de compra en supermercado por 20 mil, 2° boucher de compra en supermercado por 10 mil",
+      "numeros": 46,
+      "valor": 500
+    },
+    {
+      "id": 1,
+      "titulo": "Veterinaria SALUD",
+      "descripcion": "se organiza rifa para juntar fondos para la castracion de gatos y perros callejeros",
+      "premios": "Bolsas de 15kg de comida para gatos y perros, pipetas y desparasitantes",
+      "numeros": 100,
+      "valor": 600
+    },
+    {
+      "id": 2,
+      "titulo": "Guarderia CUIDAMOS PARA TODOS y TODAS",
+      "descripcion": "se recaudan fondos para coprar juegos didacticos para los nenes de la guarderia",
+      "premios": "2 meses gratis de guarderia",
+      "numeros": 36,
+      "valor": 1250
+    },
+    {
+      "id": 3,
+      "titulo": "RIFA SOLIDARIA, TODOS POR PAOLA",
+      "descripcion": "se recaudan fondos para cirugia de una bebe de 12 meses",
+      "premios": "5kg de asado",
+      "numeros": 1000,
+      "valor": 500
+    },
+    {
+      "id": 4,
+      "titulo": "RIFA SOLIDARIA, COMEDOR SAN SALVADOR",
+      "descripcion": "se recaudan fondos para construir una cocina comedor mas amplia",
+      "premios": "canasta con mercaderia",
+      "numeros": 500,
+      "valor": 300
+    },
+    {
+      "id": 5,
+      "titulo": "VIAJE DE ESTUDIO IPEM 357",
+      "descripcion": "se recaudan fondos para ayudar a estudiantes con su viaje de estudio",
+      "premios": "bicicleta venzo",
+      "numeros": 2000,
+      "valor": 1000
+    },
+    {
+      "id": 6,
+      "titulo": "HOGAR DE ABUELOS",
+      "descripcion": "se recaudan fondos para coprar nuevos colchones para camas de abuelos",
+      "premios": "2 canastas familiares",
+      "numeros": 800,
+      "valor": 500
+    },
+    {
+      "id": 7,
+      "titulo": "RIFA SOLIDARIA, LUCHA CONTRA EL CANCER INFANTIL",
+      "descripcion": "se recaudan fondos para ayudar a familias que no pueden acceder a atencion medica oncologica",
+      "premios": "orden de compra por 50 mil para supermercado.",
+      "numeros": 5000,
+      "valor": 1200
+    }
+  ]
+}

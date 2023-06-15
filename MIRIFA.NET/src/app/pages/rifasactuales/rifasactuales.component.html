@@ -1,0 +1,28 @@
+<section class="sec_rifasactuales">
+    <br>
+    <h3>Rifas actuales</h3>
+    <br>
+    <form action="">
+        <input type="text" name="rifas" class="busqueda">
+        <input type="button" value="BUSCAR RIFA" class="boton">
+    </form>
+    <br>
+    <br>
+    <div class="contenedorrifas" *ngFor="let element of listaRifasActuales; let indice = index"> 
+        
+        <div class="p_fila"> 
+            <ul>
+                <br>
+                <li>Titulo: {{element.email}}</li>
+                <li>Descripcion: {{element.username}}</li>
+
+            </ul>
+
+            <div class="button"> 
+                <button><img class="agregar" src="/assets/add.png" alt="Añadir"></button>
+            </div>
+
+        </div>
+        
+    </div>
+</section>

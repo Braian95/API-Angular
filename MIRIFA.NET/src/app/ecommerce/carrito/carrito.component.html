@@ -1,0 +1,32 @@
+<section>
+    <div id="miCarrito">
+        Mi carrito
+            <div class="carritoRifas" *ngFor="let element of carritoActual; let indice = index">
+                <img src="/assets/Logo-mirifa2.png" alt="Rifa" class="d-inline-block imgCarrito">
+                <p>{{element.username}}</p>
+                <p class="numero">{{element.email}}</p>
+                <p>{{element.valor|currency}}</p>
+                <button (click)="OnClickEliminar(indice)">
+                    <img src="/assets/basura.png" alt="Basura" class="d-inline-block imgCarrito">
+                </button>
+            </div>
+        <button (click)="OnClickAdd()"><img class="agregar" src="/assets/add.png" alt="Añadir"></button>
+        <div class="cuponDes">
+            <p>Cupon de descuento</p>
+            <input type="text" name="cupon" class="cuponCampo">
+            <input type="button" value="Aplicar" class="cuponBoton">
+        </div>
+    </div>
+    <div id="metodoPago">
+        Métodos de pago
+        <div class="carritoPago">
+            Tarjeta de credito
+        </div>
+        <div class="carritoPago">
+            Tarjeta de debito
+        </div>
+        <div class="carritoPago">
+            Efectivo
+        </div>
+    </div>
+</section>

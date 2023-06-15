@@ -1,0 +1,28 @@
+table{
+    margin: auto;
+}
+
+h2{
+    text-align: center;
+}
+
+thead{
+    text-align: center;
+}
+
+table td{
+    border: solid 0.1em grey;
+    text-align: center;
+    min-width: 10vw;
+    padding: 0.5em;
+}
+
+img{
+    width: 1.5em;
+    margin:auto;
+}
+
+button{
+    border: none;
+    background: none;
+}

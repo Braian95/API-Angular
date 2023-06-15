@@ -1,0 +1,23 @@
+.sec_pregunta{
+    margin: 1em 4em; 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.pregunta{
+    font-weight: bolder;
+    align-self:flex-start;
+    padding: 0.2em;
+    width:fit-content;
+    background-color: #edeaea;
+    border-radius: 1em;
+}
+
+.pregunta ~ p{
+    font-weight: 900;
+    display: flex;
+    justify-content:flex-start;
+    margin-bottom: 2em;
+}

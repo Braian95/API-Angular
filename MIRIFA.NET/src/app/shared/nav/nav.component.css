@@ -1,0 +1,29 @@
+.navbar-brand{
+    color: black;
+    text-decoration: none;
+}
+
+.navbar-brand img{
+    width: 3em;
+}
+
+.navbar-brand:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.nav-link{
+    background-color: #E2F0EF;
+    border-radius: 1em;
+    margin: 1em;
+    text-align: center;
+}
+
+.nav-login{
+    background-color: #313E50;
+}
+
+#carrito{
+    width: 2.4em;
+    filter: invert(100%);
+}
