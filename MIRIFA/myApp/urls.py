@@ -7,6 +7,7 @@ urlpatterns = [
     path('auth/logout/', LogoutView.as_view(), name='auth_logout'),
     
     path('auth/list/', UserViewSet.as_view(), name='auth_user'),
+    path('auth/filter/<str:username>', UserViewFilter.as_view(), name='auth_filter'),
     path('auth/update/<str:username>', UpdateUser.as_view(), name='actualizar_user'),
     path('auth/delete/<str:username>', DeleteUser.as_view(), name='eliminar_user'),
     
@@ -16,4 +17,7 @@ urlpatterns = [
     path('rifa/update/<int:id_rifa>', UpdateRifa.as_view(), name='actualizar_rifa'),
 
     path('auth/genToken', views.obtain_auth_token),
+    path('carrito/add', AddCarito.as_view(), name='añadir_carrito'),
+    path('carrito/delete/<int:id_venta>', DeleteCarrito.as_view(), name='eliminar_carrito'),
+    path('carrito/update/<int:id_venta>', UpdateCarrito.as_view(), name='actualizar_carrito'),
 ]

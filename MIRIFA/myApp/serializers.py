@@ -36,3 +36,8 @@ class RifaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rifa
         fields = '__all__'
+
+class VentaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Venta
+        fields = '__all__'
