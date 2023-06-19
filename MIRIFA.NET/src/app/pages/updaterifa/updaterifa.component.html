@@ -1,0 +1,125 @@
+<h2 class="mb-4">Crear Rifa</h2>
+<section>
+  <form class="needs-validation" [formGroup]="actualizarRifa" (ngSubmit)="onEnviar($event, rifaFilter.nombre_sorteo)">
+    <div class="segundaC">
+      <label for="nombre_sorteo" class="form-label">Titulo de la rifa</label>
+      <input type="text" name="titulo" class="form-control inputForm {{invalido}}" placeholder="{{rifaFilter.nombre_sorteo}}" formControlName="nombre_sorteo">
+      <div *ngIf="Titulo?.errors && Titulo?.touched">
+        <p *ngIf="Titulo?.hasError('required')" class="text-danger">
+          Completar titulo de la rifa
+        </p>
+        <p *ngIf="Titulo?.hasError('minlength')" class="text-danger">
+          El titulo de la rifa debe contener al menos 5 caracteres
+        </p>
+      </div> 
+
+      <label for="motivo" class="d-block">Motivo de la rifa</label>
+      <textarea name="motivo" class="form-control m-auto rounded-2 {{invalido}}" cols="30" rows="10" placeholder="{{rifaFilter.motivo}}" formControlName="motivo"></textarea>
+      <div *ngIf="Descripcion?.errors && Descripcion?.touched">
+        <p *ngIf="Descripcion?.hasError('required')" class="text-danger">
+          Completar descripcion de la rifa
+        </p>
+        <p *ngIf="Descripcion?.hasError('minlength')" class="text-danger">
+          La descripcion de la rifa debe contener al menos 20 caracteres
+        </p>
+      </div> 
+
+      <label for="organizador" class="form-label d-block">Organizador de la rifa</label>
+      <input type="text" name="organizador" class="form-control inputForm {{invalido}}" placeholder="{{rifaFilter.organizador}}" formControlName="organizador">
+      <div *ngIf="Organizador?.errors && Organizador?.touched">
+        <p *ngIf="Organizador?.hasError('required')" class="text-danger">
+          Completar organizador de la rifa
+        </p>
+      </div>
+
+      <label for="premio1" class="form-label">1° Premio</label>
+      <input type="text" name="premio1" class="form-control inputForm {{invalido}}" formControlName="premio1" placeholder="{{rifaFilter.premio1}}">
+      <div *ngIf="Premio1?.errors && Premio1?.touched">
+        <p *ngIf="Premio1?.hasError('required')" class="text-danger">
+          Completar 1° premio de la rifa
+        </p>
+      </div>
+
+      <label for="premio2" class="form-label">2° Premio</label>
+      <input type="text" name="premio2" class="form-control inputForm {{invalido}}" formControlName="premio2" placeholder="{{rifaFilter.premio2}}">
+      <div *ngIf="Premio2?.errors && Premio2?.touched">
+        <p *ngIf="Premio2?.hasError('required')" class="text-danger">
+          Completar 2° premio de la rifa
+        </p>
+      </div>
+
+      <label for="premio3" class="form-label">3° Premio</label>
+      <input type="text" name="premio3" class="form-control inputForm {{invalido}}" formControlName="premio3" placeholder="{{rifaFilter.premio3}}">
+      <div *ngIf="Premio3?.errors && Premio3?.touched">
+        <p *ngIf="Premio3?.hasError('required')" class="text-danger">
+          Completar 3° premio de la rifa
+        </p>
+      </div>
+    </div>
+    <div class="tercerC">
+      <label for="" class="d-block">Rifas a ofrecer</label>
+      <p>Cantidad de rifas: {{rifaFilter.cantidad_rifas}}</p>
+      <label for="cantidad_rifas">100</label>
+      <input type="radio" value="100" class="m-lg-2" name="cantidad_rifas" formControlName="cantidad_rifas">
+
+      <label for="cantidad_rifas">200</label>
+      <input type="radio" value="200" class="m-lg-2" name="cantidad_rifas" formControlName="cantidad_rifas">
+
+      <label for="cantidad_rifas">500</label>
+      <input type="radio" value="500" class="m-lg-2" name="cantidad_rifas" formControlName="cantidad_rifas">
+
+      <label for="cantidad_rifas">1000</label>
+      <input type="radio" value="1000" class="m-lg-2" name="cantidad_rifas" formControlName="cantidad_rifas"> 
+      <div *ngIf="NumRifas?.errors && NumRifas?.touched">
+        <p *ngIf="NumRifas?.hasError('required')" class="text-danger">
+          Completar el numero de la rifas
+        </p>
+      </div>
+
+      <label for="valor" class="d-block">Valor de cada rifa</label>
+      <input type="number" class="form-control inputForm {{invalido}}" name="valor" formControlName="valor" placeholder="{{rifaFilter.valor}}">
+      <div *ngIf="Monto?.errors && Monto?.touched">
+        <p *ngIf="Monto?.hasError('required')" class="text-danger">
+          Completar valor de la rifa
+        </p>
+        <p *ngIf="Monto?.hasError('min')" class="text-danger">
+          El valor minimo de la rifa es de $100
+        </p>
+      </div>
+
+      <label for="titular">Datos de transferencia</label>
+      <input type="text" class="form-control inputForm {{invalido}}" name="titular" placeholder="{{rifaFilter.titular}}" formControlName="titular">
+      <div *ngIf="Titular?.errors && Titular?.touched">
+        <p *ngIf="Titular?.hasError('required')" class="text-danger">
+          Completar titular de la cuenta
+        </p>
+      </div>
+      <input type="text" class="form-control inputForm {{invalido}}" name="cbu" placeholder="{{rifaFilter.cbu}}" formControlName="cbu">
+      <div *ngIf="Cbu?.errors && Cbu?.touched">
+        <p *ngIf="Cbu?.hasError('required')" class="text-danger">
+          Completar CBU/CVU de la cuenta
+        </p>
+        <p *ngIf="Cbu?.hasError('minlength')" class="text-danger" >
+          El CBU/CVU debe tener al menos 22 caracteres
+        </p>
+      </div>
+      <input type="text" class="form-control inputForm {{invalido}}" name="banco" placeholder="{{rifaFilter.banco}}" formControlName="banco">
+      <div *ngIf="Banco?.errors && Banco?.touched">
+        <p *ngIf="Banco?.hasError('required')" class="text-danger">
+          Completar banco de la cuenta
+        </p>
+      </div>
+
+      <label for="fecha_sorteo">Finalización de la rifa</label>
+      <p>Fecha:{{rifaFilter.fecha_sorteo}}</p>
+      <input type="date" class="form-control inputForm {{invalido}}" name="finalizacion" formControlName="fecha_sorteo">
+      <div *ngIf="Fecha?.errors && Fecha?.touched">
+        <p *ngIf="Fecha?.hasError('required')" class="text-danger">
+          Completar fecha de la rifa
+        </p>
+      </div>
+
+      <button class="boton" type="submit">Actualizar</button>
+    </div>
+  </form>
+</section>

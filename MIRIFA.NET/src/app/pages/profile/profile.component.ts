@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioUsuarioService } from 'src/app/Servicios/servicio-usuario.service';
 import { ServicioMirifaService } from 'src/app/Servicios/servicio-mirifa.service';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +13,7 @@ export class ProfileComponent implements OnInit {
   usuariosList:any
   rifasActual:any
 
-  constructor(private usuarios:ServicioUsuarioService, private rifas:ServicioMirifaService){
+  constructor(private usuarios:ServicioUsuarioService, private rifas:ServicioMirifaService, private router: Router, private cookie: CookieService){
     this.ObtenerDatosUser()
     this.ObtenerDatosRifas()
   }
@@ -44,18 +46,22 @@ export class ProfileComponent implements OnInit {
     window.location.reload()
   }
   
-  OnEditRifa(value:number){
+  OnEditRifa(value:string){
     alert("Editar rifa con ID:"+value)
+    this.cookie.set("rifa", value)
+    this.router.navigate(['/uprifa'])
   }
 
-  onDeleteUser(mail:string){
-    alert("Eliminar usuario con mail:"+mail)
-    this.usuarios.EliminarUser(mail).subscribe();
+  onDeleteUser(username:string){
+    alert("Eliminar usuario con mail:"+username)
+    this.usuarios.EliminarUser(username).subscribe();
     window.location.reload()
   }
 
-  onEditUser(mail:string){
-    alert("Editar usuario con mail:"+mail)
+  onEditUser(username:string){
+    alert("Editar usuario con mail:"+username)
+    this.cookie.set("user", username)
+    this.router.navigate(['/upuser'])
   }
 
   ngOnInit(): void {

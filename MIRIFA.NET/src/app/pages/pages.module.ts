@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { BienvenidaComponent } from './bienvenida/bienvenida.component';
 import { CrearifaComponent } from './crearifa/crearifa.component';
 import { RifasactualesComponent } from './rifasactuales/rifasactuales.component';
@@ -12,6 +13,10 @@ import { TerminosComponent } from './terminos/terminos.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
+import { UpdaterifaComponent } from './updaterifa/updaterifa.component';
+
+
 
 @NgModule({
   declarations: [
@@ -24,7 +29,9 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     RegistroComponent,
     TerminosComponent,
-    ProfileComponent
+    ProfileComponent,
+    UpdateuserComponent,
+    UpdaterifaComponent,
   ],
   imports: [
     CommonModule,
@@ -40,7 +47,10 @@ import { ProfileComponent } from './profile/profile.component';
     FaqComponent,
     LoginComponent,
     RegistroComponent,
-    TerminosComponent
+    TerminosComponent,
+    ProfileComponent,
+    UpdateuserComponent,
+    UpdaterifaComponent,
   ]
 })
 export class PagesModule { }

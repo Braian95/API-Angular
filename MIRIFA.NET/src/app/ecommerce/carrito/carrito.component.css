@@ -82,3 +82,15 @@ button{
 .numero{
     text-align: center;
 }
+
+.boton{
+    display: block;
+    height: 2.5em;
+    width: 5em;
+    margin: auto;
+    margin-top: 2em;
+    background-color: #313E50;
+    border: 0.1em transparent;
+    border-radius: 0.5em;
+    color: white;
+}

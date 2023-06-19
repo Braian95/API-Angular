@@ -10,13 +10,13 @@
         </thead>
         <tbody *ngFor="let element of usuariosList">
             <tr>
-                <td id="emailUser">{{element.email}}</td>
-                <td>{{element.username}}</td>
+                <td id="emailUser">{{element.username}}</td>
+                <td>{{element.email}}</td>
                 <td>
-                    <button (click)="onDeleteUser(element.email)">
+                    <button (click)="onDeleteUser(element.username)">
                         <img src="/assets/basura.png" alt="eliminar">
                     </button>
-                    <button (click)="onEditUser(element.email)">
+                    <button (click)="onEditUser(element.username)">
                         <img src="/assets/edit.png" alt="editar">
                     </button>
                 </td>
@@ -48,7 +48,7 @@
                     <button (click)="OnDeleteRifa(element.id_rifa)">
                         <img src="/assets/basura.png" alt="eliminar">
                     </button>
-                    <button (click)="OnEditRifa(element.id_rifa)">
+                    <button (click)="OnEditRifa(element.nombre_sorteo)">
                         <img src="/assets/edit.png" alt="editar">
                     </button>
                 </td>

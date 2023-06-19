@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioUsuarioService } from 'src/app/Servicios/servicio-usuario.service';
+import { AuthtokenService } from 'src/app/Servicios/auth/authtoken.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {Validators} from '@angular/forms'
 import { NgClass } from '@angular/common';
 import { Router } from '@angular/router';
-import { AuthtokenService } from 'src/app/Servicios/authtoken.service';
 
 @Component({
   selector: 'app-login',
@@ -20,8 +20,8 @@ export class LoginComponent{
 
   constructor(private Miservicio:ServicioUsuarioService, 
     private formBuilder: FormBuilder,
-    private router: Router,
-    private Auth: AuthtokenService){
+    private auth: AuthtokenService,
+    private router: Router){
     }
 
   get Password(){
@@ -32,6 +32,7 @@ export class LoginComponent{
     return this.loginForm.get("username");
   }
 
+  
 
   onEnviar(event: Event){
     event.preventDefault;
@@ -39,7 +40,7 @@ export class LoginComponent{
       alert("Enviar al servidor...")
       console.log(this.loginForm.value)
       this.Miservicio.EnviarUser(this.loginForm.value).subscribe(data =>{
-        this.Auth.setToken(data.token)
+        this.auth.setToken(data.token)
       })
       this.router.navigate(['/profile'])
     }else{

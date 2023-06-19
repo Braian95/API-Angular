@@ -107,12 +107,25 @@ class UpdateRifa(generics.RetrieveUpdateAPIView):
     permission_classes = [IsAdminUser]
     serializer_class = RifaSerializer
     queryset = Rifa.objects.all()
-    lookup_field = 'id_rifa'
+    lookup_field = 'nombre_sorteo'
 
     def update(self, request, *args, **kwargs):
         return super().update(request, *args, **kwargs)
     
+class ListRifaFilter(generics.RetrieveAPIView):
+    permission_classes = [IsAdminUser]
+    serializer_class= RifaSerializer
+    queryset = Rifa.objects.all()
+    lookup_field = "nombre_sorteo"
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
 #Clases referidas al carrito
+class ListCarrito(generics.ListAPIView):
+    permission_classes = [AllowAny]
+    queryset=Venta.objects.all()
+    serializer_class= VentaSerializer
+
 class AddCarito(APIView):
     permission_classes = [IsAuthenticated]
     def post(self, request, format = None):
@@ -139,7 +152,15 @@ class UpdateCarrito(generics.RetrieveUpdateAPIView):
     permission_classes = [IsAdminUser]
     serializer_class = VentaSerializer
     queryset = Venta.objects.all()
-    lookup_field = 'id_venta'
+    lookup_field = 'titulo_rifa'
 
     def update(self, request, *args, **kwargs):
         return super().update(request, *args, **kwargs)
+    
+class ListCarritoFilter(generics.RetrieveAPIView):
+    permission_classes = [IsAdminUser]
+    serializer_class= VentaSerializer
+    queryset = Venta.objects.all()
+    lookup_field = "titulo_rifa"
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)

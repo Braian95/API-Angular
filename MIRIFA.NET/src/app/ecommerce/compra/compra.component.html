@@ -1,1 +1,52 @@
-<p>compra works!</p>
+<section>
+    <h1>Ingrese datos de la tarjeta</h1>
+    <form class="needs-validation" [formGroup]="compraForm" (ngSubmit)="onEnviar($event)">
+        <input type="text" class="form-control {{invalido}}" placeholder="Número de tarjeta" formControlName="numero">
+        <div *ngIf="Numero?.errors && Numero?.touched">
+            <p *ngIf="Numero?.hasError('required')" class="text-danger">
+              Completar número de la tarjeta
+            </p>
+            <p *ngIf="Numero?.hasError('maxlength')" class="text-danger">
+              Los números deben ser como máximo 16
+            </p>
+          </div>
+        <input type="text" class="form-control {{invalido}}" placeholder="Nombre y apellido" formControlName="nombre">
+        <div *ngIf="Nombre?.errors && Numero?.touched">
+            <p *ngIf="Nombre?.hasError('required')" class="text-danger">
+              Completar nombre y apellido de la tarjeta
+            </p>
+          </div>
+
+
+        <input type="number" class="form-control {{invalido}}" placeholder="Mes de expiración" formControlName="mes">
+        <div *ngIf="Numero?.errors && Numero?.touched">
+            <p *ngIf="Numero?.hasError('required')" class="text-danger">
+              Completar mes de expiración
+            </p>
+          </div>
+
+        <input type="number" class="form-control {{invalido}}" placeholder="Año de expiración" formControlName="year">
+        <div *ngIf="Year?.errors && Numero?.touched">
+            <p *ngIf="Year?.hasError('required')" class="text-danger">
+              Completar año de expiración
+            </p>
+          </div>
+    
+        <input type="number" class="form-control {{invalido}}" placeholder="Código de seguridad" formControlName="codigo">
+        <div *ngIf="Codigo?.errors && Numero?.touched">
+            <p *ngIf="Codigo?.hasError('required')" class="text-danger">
+              Completar codigo de seguridad
+            </p>
+          </div>
+
+        <input type="number" class="form-control {{invalido}}" placeholder="DNI del titular" formControlName="dni">
+        <div *ngIf="DNI?.errors && Numero?.touched">
+            <p *ngIf="DNI?.hasError('required')" class="text-danger">
+              Completar DNI del titular
+            </p>
+          </div>
+    
+        <button class="boton" type="submit">ENVIAR</button>
+    </form>
+</section>
+

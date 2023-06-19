@@ -38,7 +38,7 @@ class Factura(models.Model):
 
 class Rifa(models.Model):
     id_rifa = models.AutoField(primary_key=True)
-    nombre_sorteo = models.CharField(max_length=100)
+    nombre_sorteo = models.CharField(max_length=100, unique=True)
     motivo = models.CharField(max_length=100,null=False)
     organizador = models.CharField(max_length=45,null=False)
     premio1 = models.CharField(max_length=100,null=False)
@@ -59,16 +59,9 @@ class Rifa(models.Model):
         return self.nombre_sorteo
     
 
-class Numeros_Rifas(models.Model):
-    id_numero = models.IntegerField(primary_key=True,default=1,validators=[MaxValueValidator(100),MinValueValidator(1)])
-    id_rifa = models.ForeignKey(Rifa,to_field='id_rifa',null=True,on_delete=models.CASCADE)
-
-    def __unicode__(self):
-        return self.id_numero
-    
 class Venta(models.Model):
     id_venta = models.AutoField(primary_key=True)
-    id_rifa = models.ForeignKey(Rifa,to_field='id_rifa',null=True,on_delete=models.CASCADE)
+    titulo_rifa = models.ForeignKey(Rifa,to_field='nombre_sorteo',null=True,on_delete=models.CASCADE)
     cantidad = models.DecimalField(null=False,decimal_places=2,default=0,max_digits=10)
     total = models.DecimalField(null=False,decimal_places=2,default=0,max_digits=10)
     descuento = models.DecimalField(null=False,decimal_places=2,default=0,max_digits=10)

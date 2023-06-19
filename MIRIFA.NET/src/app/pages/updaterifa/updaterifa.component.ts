@@ -4,16 +4,18 @@ import { AuthtokenService } from 'src/app/Servicios/auth/authtoken.service';
 import { FormBuilder } from '@angular/forms';
 import {Validators} from '@angular/forms'
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
-  selector: 'app-crearifa',
-  templateUrl: './crearifa.component.html',
-  styleUrls: ['./crearifa.component.css']
+  selector: 'app-updaterifa',
+  templateUrl: './updaterifa.component.html',
+  styleUrls: ['./updaterifa.component.css']
 })
-
-export class CrearifaComponent {
+export class UpdaterifaComponent {
   invalido = "";
-  crearRifaForm = this.formBuilder.group({
+  rifaFilter:any
+
+  actualizarRifa = this.formBuilder.group({
     nombre_sorteo:['',[Validators.required, Validators.minLength(5)]],
     motivo:['',[Validators.required,Validators.minLength(20)]],
     organizador:['',[Validators.required,Validators.minLength(5)]],
@@ -27,63 +29,71 @@ export class CrearifaComponent {
     banco:['',[Validators.required,Validators.minLength(5)]],
     fecha_sorteo:['',[Validators.required]],
   })
-  constructor(private miServicio:ServicioMirifaService, 
-    private formBuilder:FormBuilder,
-    private auth: AuthtokenService,
-    private router: Router
-    ){
+  constructor(private miServicio:ServicioMirifaService, private formBuilder:FormBuilder, private auth: AuthtokenService, private router: Router, private cookie: CookieService){
+    this.ObtenerRifas()
+  }
 
+  ObtenerRifas(){
+    this.miServicio.ObtenerRifaFilter(this.cookie.get("rifa")).subscribe({
+      next:(rifaActualData)=>{
+      this.rifaFilter=rifaActualData
+    },
+    error:(errorData)=>{
+      console.error(errorData)
+    }
+  })
   }
   get Titulo(){
-    return this.crearRifaForm.get("titulo")
+    return this.actualizarRifa.get("titulo")
   }
   get Descripcion(){
-    return this.crearRifaForm.get("descripcion")
+    return this.actualizarRifa.get("descripcion")
   }
   get Organizador(){
-    return this.crearRifaForm.get("organizador")
+    return this.actualizarRifa.get("organizador")
   }
   get Premio1(){
-    return this.crearRifaForm.get("premio1")
+    return this.actualizarRifa.get("premio1")
   }
   get Premio2(){
-    return this.crearRifaForm.get("premio2")
+    return this.actualizarRifa.get("premio2")
   }
   get Premio3(){
-    return this.crearRifaForm.get("premio3")
+    return this.actualizarRifa.get("premio3")
   }
   get NumRifas(){
-    return this.crearRifaForm.get("numRifas")
+    return this.actualizarRifa.get("numRifas")
   }
   get Monto(){
-    return this.crearRifaForm.get("monto")
+    return this.actualizarRifa.get("monto")
   }
   get Titular(){
-    return this.crearRifaForm.get("titular")
+    return this.actualizarRifa.get("titular")
   }
   get Cbu(){
-    return this.crearRifaForm.get("cbu")
+    return this.actualizarRifa.get("cbu")
   }
   get Banco(){
-    return this.crearRifaForm.get("banco")
+    return this.actualizarRifa.get("banco")
   }
   get Fecha(){
-    return this.crearRifaForm.get("fecha")
+    return this.actualizarRifa.get("fecha")
   }
   get RifasDestacadas(){
-    return this.crearRifaForm.get("rifasDestacadas")
+    return this.actualizarRifa.get("rifasDestacadas")
   }
 
-  onEnviar(event: Event){
+  onEnviar(event: Event, rifa:string){
     event.preventDefault;
-    if(this.crearRifaForm.valid){
+    if(this.actualizarRifa.valid){
       alert("Enviar al servidor...")
-      console.log(this.crearRifaForm.value)
-      this.miServicio.CrearRifa(this.crearRifaForm.value).subscribe()
+      console.log(this.actualizarRifa.value)
+      this.miServicio.UpdateRifas(rifa,this.actualizarRifa.value).subscribe()
       this.router.navigate(['/rifasactuales'])
     }else{
-      this.crearRifaForm.markAllAsTouched()
+      this.actualizarRifa.markAllAsTouched()
       this.invalido = "is-invalid border-danger"
     }
   }
 }
+

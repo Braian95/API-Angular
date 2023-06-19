@@ -34,18 +34,9 @@
 }
 
 input {
-
+    
     box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(100, 65, 19, 0.6);
     outline: 0 none;
-}
-
-.inputForm{
-    width: 16.2em;
-    border: solid 0.1em grey;
-    border-radius: 0.5em;
-    display: block;
-    margin: auto;
-    margin-bottom: 1em;
 }
 
 .registrate {
@@ -54,4 +45,14 @@ input {
 
 .ingresa {
     color: white;
+}
+
+select {
+    
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(100, 65, 19, 0.6);
+    outline: 0 none;
+}
+
+.container select {
+    margin-top: 12px;
 }

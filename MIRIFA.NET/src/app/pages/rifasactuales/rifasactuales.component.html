@@ -1,28 +1,19 @@
 <section class="sec_rifasactuales">
-    <br>
     <h3>Rifas actuales</h3>
-    <br>
     <form action="">
         <input type="text" name="rifas" class="busqueda">
         <input type="button" value="BUSCAR RIFA" class="boton">
     </form>
-    <br>
-    <br>
     <div class="contenedorrifas" *ngFor="let element of listaRifasActuales; let indice = index"> 
-        
         <div class="p_fila"> 
-            <ul>
-                <br>
-                <li>Titulo: {{element.email}}</li>
-                <li>Descripcion: {{element.username}}</li>
-
-            </ul>
-
-            <div class="button"> 
-                <button><img class="agregar" src="/assets/add.png" alt="Añadir"></button>
-            </div>
-
+                <p>{{element.nombre_sorteo}}</p>
+                <p>{{element.motivo}}</p>
+                <p>1° Premio: {{element.premio1}}</p>
+                <p>2° Premio: {{element.premio2}}</p>
+                <p>3° Premio: {{element.premio3}}</p>
+                <p>Numeros disponibles: {{element.cantidad_rifas}}</p>
+                <p>Valor: {{element.valor|currency}}</p>
+                <button><img class="agregar" src="/assets/add.png" alt="Añadir" (click)="onClick(element.nombre_sorteo, element.valor)"></button>
         </div>
-        
     </div>
 </section>

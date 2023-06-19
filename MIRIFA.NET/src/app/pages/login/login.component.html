@@ -1,52 +1,52 @@
 <div class="row align-items-center justify-content-center">
-    <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-4 ">
-        <div class="container mb-3 mt-1 mb-1">
-            <h1 class="text-center">Ingresar</h1>
-            <form class="needs-validation" [formGroup]="loginForm" (ngSubmit)="onEnviar($event)">
-                
-              <div class="form-group">
-                  <label class="form-label" for="nombreusuario">Nombre de Usuario</label>
-                  <input class="form-control rounded-pill {{invalido}}" type="texto" id="nombreusuario" formControlName="username">
-                  <div *ngIf="Usuario?.errors && Usuario?.touched">
-                    <p *ngIf="Usuario?.hasError('required')" class="text-danger">
-                      Completar nombre de usuario
-                    </p>
-                  </div> 
-              </div>
-                    
-              <div class="form-group">
-                  <label class="form-label" for="password">Contraseña</label>
-                  <input class="form-control rounded-pill" type="password" id="password" formControlName="password">
-                  <div *ngIf="Password?.errors && Password?.touched">
-                    <p class="text-danger" *ngIf="Password?.hasError('required')">
-                      Completar contraseña
-                    </p>
-                    <p class="text-danger" *ngIf="Password?.hasError('minlength')">
-                      La contraseña debe tener al menos 8 caracteres
-                    </p>
-                  </div>
-              </div>
-        
-              <div class="form-check mb-4">
-                  <label for="conectado" class="form-check-label d-inline-flex p-1 bd-highlight">Recordarme</label>
-                  <input type="checkbox" name="conectado" class="form-check-input" id="conectado" required>
-                  <div class="valid-feedback">
-                    Usuario y contraseña guardados
-                  </div>
-              </div>
+  <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-4 ">
+      <div class="container mb-3 mt-1 mb-1">
+          <h1 class="text-center">Ingresar</h1>
+          <form class="needs-validation" [formGroup]="loginForm" (ngSubmit)="onEnviar($event)">
               
-              <button class="btn btn-success w-100 mt-4 rounded-pill" style="background-color: #313e50; border-color: #313e50" type="submit">Ingresar</button>
-              
-        
-              <div class="my-4">
-                <span>¿Aun no tienes una cuenta?
-                <a routerLink="/register" class="registrate">Registrate</a></span> 
-              </div>
-              <div class="my-4">
-                <span>¿Olvidaste tu contraseña?
-                <a class="registrate">Recuperar contraseña</a></span> 
-              </div>
-            </form>
-        </div>
-    </div>
+            <div class="form-group">
+                <label class="form-label" for="nombreusuario">Nombre de Usuario</label>
+                <input class="form-control rounded-pill {{invalido}}" type="texto" id="nombreusuario" formControlName="username">
+                <div *ngIf="Usuario?.errors && Usuario?.touched">
+                  <p *ngIf="Usuario?.hasError('required')" class="text-danger">
+                    Completar nombre de usuario
+                  </p>
+                </div> 
+            </div>
+                  
+            <div class="form-group">
+                <label class="form-label" for="password">Contraseña</label>
+                <input class="form-control rounded-pill {{invalido}}" type="password" id="password" formControlName="password">
+                <div *ngIf="Password?.errors && Password?.touched">
+                  <p class="text-danger" *ngIf="Password?.hasError('required')">
+                    Completar contraseña
+                  </p>
+                  <p class="text-danger" *ngIf="Password?.hasError('minlength')">
+                    La contraseña debe tener al menos 8 caracteres
+                  </p>
+                </div>
+            </div>
+      
+            <div class="form-check mb-4">
+                <label for="conectado" class="form-check-label d-inline-flex p-1 bd-highlight">Recordarme</label>
+                <input type="checkbox" name="conectado" class="form-check-input" id="conectado" required>
+                <div class="valid-feedback">
+                  Usuario y contraseña guardados
+                </div>
+            </div>
+            
+            <button class="btn btn-success w-100 mt-4 rounded-pill" style="background-color: #313e50; border-color: #313e50" type="submit">Ingresar</button>
+            
+      
+            <div class="my-4">
+              <span>¿Aun no tienes una cuenta?
+              <a routerLink="/register" class="registrate">Registrate</a></span> 
+            </div>
+            <div class="my-4">
+              <span>¿Olvidaste tu contraseña?
+              <a class="registrate">Recuperar contraseña</a></span> 
+            </div>
+          </form>
+      </div>
+  </div>
 </div>
